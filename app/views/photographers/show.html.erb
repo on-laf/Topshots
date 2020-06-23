@@ -1,9 +1,9 @@
-<div class="map" style="background-image: url('https://images.unsplash.com/photo-1536632087471-3cf3f2986328?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80')"></div>
+<!-- <div style="background-image: url('https://images.unsplash.com/photo-1536632087471-3cf3f2986328?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80')"></div> -->
 
 <div class="container margin-top-negative">
   <div class="row">
     <div class="col-8">
-      <div class="flat-show-card">
+      <div>
         <h1><%= @photographer.name %></h1>
         <p><%= @photographer.location %></p>
       </div>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-4">
-      <div class="flat-show-card">
+      <div>
         <h5>Book this photographer!</h5>
 
         <form action="">
@@ -29,16 +29,16 @@
           <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
         </form>
       </div>
-      <div class="flat-show-card">
+      <div>
         <h3>Details</h3>
         <div class="flex">
 
           <div class="flex ml-3">
-            <i class="material-icons mr-2">euro_symbol</i> <%= @photographer.price %>
+            <i class="material-icons mr-2">€</i> <%= @photographer.price %>
           </div>
         </div>
       </div>
-      <div class="flat-show-card">
+      <div>
         <div class="flex-align">
           <h6 class="no-mb">Share</h6>
 
