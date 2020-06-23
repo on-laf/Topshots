@@ -1,10 +1,27 @@
-this is where I'm working
+NAVBAR
 
-<div class="container">
-<div class="row justify-content-center">
-  <% @photographers.each do |photographer| %>
-    <%= photographer.name %>
+<h1>Photographers</h1>
+
+<div class= "container">
+  <div class="row">
+    <% @photographers.each do |photographer| %>
+      <div class = "col-sm-4">
+        <div class = "d-flex flex-row justify-content-between">
+          <img src="https://picsum.photos/100/100" alt="random image">
+            <div class = "p-2">
+              <h2><%= photographer.name %></h2>
+                <div class = "d-flex flex-row justify-content-between">
+                  <p><%= photographer.location %></p>
+                  <strong><%= photographer.price %></strong>
+                </div>
+              <%= link_to "See more", photographer_path(photographer), class: "btn btn-primary"%>
+            </div>
+          </div>
+        </div>
       <% end %>
-      </div>
     </div>
-</div>
+  </div>
+
+
+FOOTER
+
