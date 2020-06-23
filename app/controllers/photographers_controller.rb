@@ -3,10 +3,13 @@ class PhotographersController < ApplicationController
 
   def new
     @photographer = Photographer.new
+    authorize @photographer
   end
 
   def create
     @photographer = Photographer.new(photographer_params)
+    @photographer.user = current_user
+    authorize @photographer
     if @photographer.save
       redirect_to photographer_path
     else
@@ -15,14 +18,19 @@ class PhotographersController < ApplicationController
   end
 
   def index
-    @photographers = Photographer.all
+    @photographers = policy_scope(Photographer)
   end
 
-  def show; end
+  def show
+    authorize @photographer
+  end
 
-  def edit; end
+  def edit
+    authorize @photographer
+  end
 
   def update
+    authorize @photographer
     @photographer.update(photographer_params)
     if @photographer.save
       redirect_to photographer_path
@@ -32,6 +40,7 @@ class PhotographersController < ApplicationController
   end
 
   def destroy
+    authorize @photographer
     @photographer.destroy
     # think about where to redirect, maybe user profile?
     redirect_to photographers_path
