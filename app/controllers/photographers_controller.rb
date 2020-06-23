@@ -53,6 +53,6 @@ class PhotographersController < ApplicationController
   end
 
   def photographer_params
-    params.require(:photographer).permit(:name, :location, :description, :price)
+    params.require(:photographer).permit(:name, :location, :description, :price, :user_id)
   end
 end
