@@ -11,7 +11,7 @@ class PhotographersController < ApplicationController
     @photographer.user = current_user
     authorize @photographer
     if @photographer.save
-      redirect_to photographer_path
+      redirect_to photographer_path(@photographer)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class PhotographersController < ApplicationController
     authorize @photographer
     @photographer.update(photographer_params)
     if @photographer.save
-      redirect_to photographer_path
+      redirect_to photographer_path(@photographer)
     else
       render :edit
     end
