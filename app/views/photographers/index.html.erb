@@ -5,17 +5,9 @@
     <div class="row">
       <% @photographers.each do |photographer| %>
         <div class = "col-12 col-md-6 col-lg-4">
-          <div class = "d-flex flex-row justify-content-between">
-            <img src="https://picsum.photos/100/100" alt="random image">
-              <div class = "p-2">
-                <h3><%= photographer.name %></h3>
-                  <div class = "d-flex flex-row justify-content-between">
-                    <p><%= photographer.location %></p>
-                    <strong>€ <%= photographer.price %></strong>
-                  </div>
-                <%= link_to "See more", photographer_path(photographer), class: "btn btn-primary"%>
-              </div>
-          </div>
+          <%= link_to photographer_path(photographer), class: "card-link" do %>
+            <%= render 'partials/card', photographer: photographer %>
+          <% end %>
         </div>
       <% end %>
     </div>
