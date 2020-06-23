@@ -1,4 +1,5 @@
 class PhotographersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_photographer, only: [:show, :edit, :update, :destroy]
 
   def new
