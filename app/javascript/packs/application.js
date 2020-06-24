@@ -32,3 +32,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+// function listQ(){
+//  var e = document.getElementById("list");
+//  if(e.selectedIndex > 0){
+//   if("Blank Test" === e.options[e.selectedIndex].value){ alert("yo"); }
+//  }
+// }
+// document.getElementById("list").addEventListener("click",listQ);
