@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'profile', to: 'pages#profile'
   resources :photographers do
     resources :bookings, only: [:create, :new, :show]
     resources :photos, only: [:create, :new, :show, :destroy]

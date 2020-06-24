@@ -1,0 +1,42 @@
+<div class="container mt-3">
+  <h1>Your Profile</h1>
+  <p><%= current_user.email %></p>
+
+  <br>
+  <% if !current_user.photographers.empty? %>
+    <% if current_user.photographers.length == 1 %>
+      <h3>Your Photographer Profile</h3>
+    <% else %>
+      <h3>Your Photographer Profiles</h3>
+    <% end %>
+    <% current_user.photographers.each do |photographer| %>
+      <div class="card-horizontal">
+        <div class="card-horizontal-parcel">
+          <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="manager profile">
+        </div>
+        <div class="card-horizontal-parcel card-horizontal-center">
+          <h3><%= photographer.name %></h3>
+          <p><%= photographer.location %></p>
+        </div>
+        <div class="card-horizontal-parcel"><h5><%= photographer.price %> €</h5></div>
+        <div class="card-horizontal-parcel"><%= link_to 'See profile', photographer_path(photographer), class: "btn btn-dark btn-font" %></div>
+        <div class="card-horizontal-parcel">
+          <%= link_to edit_photographer_path(photographer), class: "card-horizontal-icon" do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to photographer_path(photographer),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "card-horizontal-icon" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to 'Create new', new_photographer_path, class: "btn btn-outline-dark btn-font" %>
+</div>
+
+
