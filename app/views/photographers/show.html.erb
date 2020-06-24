@@ -1,117 +1,111 @@
 <div class="banner_profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1536632087471-3cf3f2986328?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80')"></div>
- <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-xl avatar_profile" />
-<div class="container" id="content_profile"> <!-- margin-top-negative -->
-  <div class="row">
-    <div class="col-8">
-      <div>
-        <h1><%= @photographer.name %></h1>
-        <p><i class="fa fa-map-pin mr-2" aria-hidden="true"></i><%= @photographer.location %></p>
-      </div>
+<div class="overall-container" style="max-width: 1350px; margin: 0 auto;">
+  <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-xl avatar_profile" />
+  <div class="container" id="content_profile"> <!-- margin-top-negative -->
+    <div class="row">
+      <div class="col-8">
+        <div>
+          <h1><%= @photographer.name %></h1>
+          <p><i class="fa fa-map-pin mr-2" aria-hidden="true"></i><%= @photographer.location %></p>
+        </div>
 
-      <div>
-        <h4>A bit more about this photographer...</h4>
-        <p><%= @photographer.description %></p>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div>
-        <h5>Book this photographer!</h5>
-
-        <form action="">
-          <div class="input-group mt-4">
-            <span class="input-group-addon" id="basic-addon1">Date:</span>
-            <input type="text" class="form-control ml-5" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mt-2">
-            <span class="input-group-addon" id="basic-addon1">Hour:</span>
-            <input type="text" class="form-control ml-5" placeholder="number" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <input type="submit" value="Book" class="btn btn-success mt-2 mb-3" style="width: 100%">
-        </form>
-      </div>
-      <div>
-        <h3>Details</h3>
-        <div class="flex">
-
-          <div class="flex ml-3 mt-2">
-            <i class="material-icons mr-2">€</i> <%= @photographer.price %>
-          </div>
+        <div>
+          <!-- <h4>A bit more about this photographer...</h4> -->
+          <p><%= @photographer.description %></p>
         </div>
       </div>
-      <div>
-        <div class="flex-align">
-          <h6 class="no-mb">Share</h6>
 
-          <div class="flex">
-            <i class="fab fa-facebook fa-2x mr-2"></i>
-            <i class="fab fa-twitter fa-2x mr-2"></i>
-            <i class="fab fa-pinterest fa-2x mr-2"></i>
-            <i class="fa fa-envelope-square fa-2x"></i>
+      <div class="col-4">
+        <div>
+          <h5 class="mb-3">Book this photographer!</h5>
+          <h6 class="mb-3"><strong>Price <%= @photographer.price %> €/hour</strong></h6>
+          <form action="">
+            <div class="input-group mt-4">
+              <span class="input-group-addon" id="basic-addon1">Date:</span>
+              <input type="text" class="form-control ml-5" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mt-2">
+              <span class="input-group-addon" id="basic-addon1">Hour:</span>
+              <input type="text" class="form-control ml-5" placeholder="number" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <input type="submit" value="Book" class="btn btn-success mt-2 mb-3" style="width: 100%">
+          </form>
+        </div>
+
+        <div>
+          <div class="flex-align">
+            <h6 class="no-mb">Share</h6>
+
+            <div class="flex">
+              <i class="fab fa-facebook fa-2x mr-2"></i>
+              <i class="fab fa-twitter fa-2x mr-2"></i>
+              <i class="fab fa-pinterest fa-2x mr-2"></i>
+              <i class="fa fa-envelope-square fa-2x"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+    <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-12 d-flex justify-content-center mb-5">
+
+      <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="all">All</button>
+      <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="1">Portraits</button>
+      <button type="button" class="btn btn-outline-dark btn-font" data-rel="2">Lifestyle</button>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
 
   <!-- Grid row -->
-<div class="row">
+  <div class="gallery" id="gallery">
 
-  <!-- Grid column -->
-  <div class="col-md-12 d-flex justify-content-center mb-5">
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
 
-    <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="all">All</button>
-    <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="1">Portraits</button>
-    <button type="button" class="btn btn-outline-dark btn-font" data-rel="2">Lifestyle</button>
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 2">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="mb-3 pics animation all 1">
+      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
+    </div>
+    <!-- Grid column -->
 
   </div>
-  <!-- Grid column -->
-
+  <!-- Grid row -->
 </div>
-<!-- Grid row -->
-
-<!-- Grid row -->
-<div class="gallery" id="gallery">
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-</div>
-<!-- Grid row -->
 
 
 
