@@ -14,7 +14,7 @@
 }
 
 #logo-text {
-padding-top: auto;
+  padding-top: auto;
 }
 
 .navbar-lewagon .navbar-brand p {
@@ -27,6 +27,9 @@ padding: 16px;
 }
 
 .nav-link {
-  font-size: 14px
+  font-size: 14px;
+  display: inline-block;
+  padding: 16px;
+
 }
 

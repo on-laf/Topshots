@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Photographers</h1>
+
+  <div class= "container">
+    <div class="row">
+      <% @photographers.each do |photographer| %>
+        <div class = "col-12 col-md-6 col-lg-4">
+          <%= link_to photographer_path(photographer), class: "card-link" do %>
+            <%= render 'partials/card', photographer: photographer %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
