@@ -44,7 +44,7 @@ class PhotographersController < ApplicationController
     authorize @photographer
     @photographer.destroy
     # think about where to redirect, maybe user profile?
-    redirect_to photographers_path
+    redirect_to profile_path
   end
 
   private
