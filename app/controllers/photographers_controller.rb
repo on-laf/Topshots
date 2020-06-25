@@ -24,6 +24,9 @@ class PhotographersController < ApplicationController
 
   def show
     authorize @photographer
+    @booking = Booking.new
+    @photograph = Photograph.new
+    @photographs = Photograph.where(photographer: @photograph.photographer)
   end
 
   def edit
