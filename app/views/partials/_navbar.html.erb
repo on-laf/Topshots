@@ -3,21 +3,7 @@
       <a class="navbar-brand" href="/">
           <%= image_tag "photologo.png", class: "navbar-logo"%> Top Shots <!--Logo!-->
       </a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a id="list" class="nav-link" href="/photographers">Find a Photographer</a>
-      </li>
 
-      <li class="nav-item active">
-
-
-        <a class="nav-link" href="#">About</a>
-
-    </select>
-      </li>
-
-
-    </ul>
     </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +14,23 @@
 
 
    <ul class="navbar-nav mr-auto">
+
       <li class="nav-item active">
+        <form class="form-inline my-2 my-lg-0">
+  <input  class="form-control mr-sm-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+   />
+   <button
+     class="btn btn-outline-dark btn-font my-2 my-sm-0"
+     type="submit">
+       Find a Photographer
+   </button>
+</form>
+</li>
+
+<li class="nav-item active">
         <a type="button" class="btn btn-outline-dark btn-font" class="nav-link" href="/users/sign_in">Log in</a>
         <a type="button" class="btn btn-dark btn-font" class="nav-link" href="/users/sign_up">Sign up</a>
       </li>
