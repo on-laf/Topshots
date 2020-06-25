@@ -1,45 +1,44 @@
 <div class="container mt-3">
-  <h1>Your Profile</h1>
-  <p><%= current_user.email %></p>
+ <!--  <h1>Your Profile</h1> -->
+  <p class="profile_name"><%= current_user.name %></p>
+  <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-xl avatar_profile_page" />
 
   <br>
-  <% if !current_user.photographers.empty? %>
-    <% if current_user.photographers.length == 1 %>
-      <h3>Your Photographer Profile</h3>
-    <% else %>
-      <h3>Your Photographer Profiles</h3>
-    <% end %>
+
+      <% if !current_user.photographers.empty? %>
+      <% if current_user.photographers.length == 1 %>
+        <h3 class= "your_ph_profile">Your Photographer Profile</h3>
+      <% else %>
+        <h3 class= "your_ph_profile">Your Photographer Profiles</h3>
+      <% end %>
     <% current_user.photographers.each do |photographer| %>
-      <div class="card-horizontal">
-        <div class="card-horizontal-parcel">
-          <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="manager profile">
-        </div>
-        <div class="card-horizontal-parcel card-horizontal-center">
-          <h3><%= photographer.name %></h3>
-          <p><%= photographer.location %></p>
-        </div>
-        <div class="card-horizontal-parcel"><h5><%= photographer.price %> €</h5></div>
-        <div class="card-horizontal-parcel"><%= link_to 'See profile', photographer_path(photographer), class: "btn btn-dark btn-font" %></div>
-        <div class="card-horizontal-parcel">
-          <%= link_to edit_photographer_path(photographer), class: "card-horizontal-icon" do %>
-            <i class="fas fa-pencil-alt"></i>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to photographer_path(photographer),
-                method: :delete,
-                data: { confirm: "Are you sure?" }, class: "card-horizontal-icon" do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+       <div class="card_profile">
+          <%= render 'partials/card', photographer: photographer %>
+        <% end %>
+       </div>
+      <% end %>
+   </div>
 
-  <%= link_to 'Create new', new_photographer_path, class: "btn btn-outline-dark btn-font" %>
+  <%= link_to 'Edit User', edit_user_registration_path, class: "btn btn-outline-dark btn-edit" %>
+  <%= link_to 'Create', new_photographer_path, class: "btn btn-outline-dark btn-new" %>
+  <%= link_to 'Delete', edit_user_registration_path, class: "btn btn-outline-dark btn-delete" %>
+  <%= link_to 'Edit', edit_user_registration_path, class: "btn btn-outline-dark btn-edit_photographer" %>
 
-  <br>
 
-</div>
+<!--
+    t.datetime "day" - string
+    t.integer "total_price" integer
+    t.boolean "confirmed", default: false
+    t.boolean "completed", default: false
+    t.bigint "user_id", null: false
+    t.bigint "photographer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "duration"
+    t.index ["photographer_id"], name: "index_bookings_on_photographer_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id" --> -->
+
+
+
 
 
