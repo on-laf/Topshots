@@ -15,6 +15,7 @@ puts 'Creating photo tags...'
 tags = ['Nature', 'Animals', 'Pet', 'People', 'Portrait', 'Lifestyle', 'City', 'Water', 'Wind', 'Sun', 'Sea', 'River', 'Tree', 'Sport', 'Building', 'Culture', 'Religion', 'Music', 'Art']
 tags.each do |tag|
   new_tag = Tag.new(tag_name: tag)
+  new_tag.save
 end
 
 puts 'Creating users and photographers...'
