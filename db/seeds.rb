@@ -6,8 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning the database...'
+Tag.destroy_all
+Booking.destroy_all
 Photographer.destroy_all
 User.destroy_all
+
+puts 'Creating photo tags...'
+tags = ['Nature', 'Animals', 'Pet', 'People', 'Portrait', 'Lifestyle', 'City', 'Water', 'Wind', 'Sun', 'Sea', 'River', 'Tree', 'Sport', 'Building', 'Culture', 'Religion', 'Music', 'Art']
+tags.each do |tag|
+  new_tag = Tag.new(tag_name: tag)
+end
 
 puts 'Creating users and photographers...'
 30.times do
