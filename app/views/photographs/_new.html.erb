@@ -1,0 +1,4 @@
+<%= simple_form_for [photographer, photograph] do |f|%>
+  <%= f.input :photo, as: :file, input_html: { multiple: true }, label:"Upload" %>
+  <%= f.submit "Upload photo", class: "btn btn-dark" %>
+<% end %>
