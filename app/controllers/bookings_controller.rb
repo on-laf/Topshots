@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.photographer = @photographer
-    @booking.total_price = @photographer.price * ((@booking.duration - @booking.day) / 3600)
+    @booking.total_price = @photographer.price * @booking.duration
     authorize @booking
     if @booking.save
       redirect_to profile_path

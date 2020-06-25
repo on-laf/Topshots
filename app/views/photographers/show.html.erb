@@ -18,11 +18,13 @@
       <div class="col-4">
         <div>
           <% if current_user == @photographer.user %>
-            <p>Nothing</p>
-          <% else %>
-            <h5 class="mb-3">Book this photographer!</h5>
-            <h6 class="mb-3"><strong>Price <%= @photographer.price %> €/hour</strong></h6>
-            <%= render 'bookings/new', photographer: @photographer, booking: @booking %>
+          <div>
+             <% render 'photographs/new', photographer: @photographer, photograph: @photograph  %>
+          </div>
+            <% else %>
+              <h5 class="mb-3">Book this photographer!</h5>
+              <h6 class="mb-3"><strong>Price <%= @photographer.price %> €/hour</strong></h6>
+              <%= render 'bookings/new', photographer: @photographer, booking: @booking %>
           <% end %>
         </div>
 
