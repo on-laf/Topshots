@@ -54,13 +54,14 @@
 
 .card-horizontal {
   display: flex;
-  padding: 10px 20px;
-  margin: 40px 0;
+  padding: 20px;
+  margin: 30px 0;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
-  max-width: 600px;
+  max-width: 730px;
   border-radius: 3px;
+  font-family: Montserrat;
 }
 
 .card-horizontal-parcel {
@@ -72,6 +73,7 @@
 
 .card-horizontal-center {
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .card-horizontal-icon {
