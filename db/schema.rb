@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_105930) do
+ActiveRecord::Schema.define(version: 2020_06_25_134737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_06_25_105930) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "photograph_tags", force: :cascade do |t|
+    t.bigint "photograph_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photograph_id"], name: "index_photograph_tags_on_photograph_id"
+    t.index ["tag_id"], name: "index_photograph_tags_on_tag_id"
+  end
+
   create_table "photographers", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -68,6 +77,12 @@ ActiveRecord::Schema.define(version: 2020_06_25_105930) do
     t.index ["photographer_id"], name: "index_photographs_on_photographer_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_06_25_105930) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "photographers"
   add_foreign_key "bookings", "users"
+  add_foreign_key "photograph_tags", "photographs"
+  add_foreign_key "photograph_tags", "tags"
   add_foreign_key "photographers", "users"
   add_foreign_key "photographs", "photographers"
 end
