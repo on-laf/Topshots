@@ -7,15 +7,13 @@ class PhotographsController < ApplicationController
   end
 
   def create
-    @photograph = Photograph.new(photograph_params)
     @photographer = Photographer.find(params[:photographer_id])
-    @photograph.photographer = @photographer
-    authorize @photograph
-    if @photograph.save
-      redirect_to photographer_path(@photographer)
-    else
-      render :new
+    params[:photograph][:photo].each do |photo|
+      @photograph = Photograph.new(photo: photo, photographer: @photographer)
+      authorize @photograph
+      @photograph.save
     end
+    redirect_to photographer_path(@photographer)
   end
 
   def index
@@ -38,6 +36,6 @@ class PhotographsController < ApplicationController
   private
 
   def photograph_params
-    params.require(:photograph).permit(:photo, :photographer_id)
+    params.require(:photograph).permit(:photographer_id, photo: [])
   end
 end
