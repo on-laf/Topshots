@@ -17,19 +17,13 @@
 
       <div class="col-4">
         <div>
-          <h5 class="mb-3">Book this photographer!</h5>
-          <h6 class="mb-3"><strong>Price <%= @photographer.price %> €/hour</strong></h6>
-          <form action="">
-            <div class="input-group mt-4">
-              <span class="input-group-addon" id="basic-addon1">Date:</span>
-              <input type="text" class="form-control ml-5" placeholder="12/10/2017" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mt-2">
-              <span class="input-group-addon" id="basic-addon1">Hour:</span>
-              <input type="text" class="form-control ml-5" placeholder="number" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <input type="submit" value="Book" class="btn btn-success mt-2 mb-3" style="width: 100%">
-          </form>
+          <% if current_user == @photographer.user %>
+            <p>Nothing</p>
+          <% else %>
+            <h5 class="mb-3">Book this photographer!</h5>
+            <h6 class="mb-3"><strong>Price <%= @photographer.price %> €/hour</strong></h6>
+            <%= render 'bookings/new', photographer: @photographer, booking: @booking %>
+          <% end %>
         </div>
 
         <div>

@@ -1,7 +1,7 @@
 <div class="container my-3" style="max-width: 500px;">
-  <%= simple_form_for [ @photographer, @booking ] do |f| %>
-    <%= f.input :day, label: 'From' %>
-    <%= f.input :duration, label: 'To' %>
+  <%= simple_form_for [ photographer, booking ] do |f| %>
+    <%= f.input :day, label: 'Day', as: :date, html5: true %>
+    <%= f.input :duration, label: 'How many hours?' %>
     <%= f.submit "Request Booking", class: "btn btn-dark" %>
   <% end %>
 </div>
