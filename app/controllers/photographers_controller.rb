@@ -24,6 +24,7 @@ class PhotographersController < ApplicationController
     else
       @photographers = policy_scope(Photographer)
     end
+    @photographs = Photograph.where(photographer: @photographer)
   end
 
   def show
