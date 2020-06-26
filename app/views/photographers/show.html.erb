@@ -42,38 +42,25 @@
       </div>
     </div>
   </div>
-<div>
-  <div class="row">
-    <div class="column">
-
-      <% @photographer.photographs.each do |photograph| %>
-            <%= cl_image_tag photograph.photo.key %>
-      <% end %>
-
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
-
-    </div>
-
-    <div class="column">
-      <%= image_tag("https://mymodernmet.com/wp/wp-content/uploads/2018/10/Mou-Aysha-portrait-photography-3.jpg") %>
-      <%= image_tag("https://i.pinimg.com/originals/03/33/21/033321112df5d5a0392082517cbe5143.jpg") %>
-    </div>
-
+  <div class="container">
+    <div class="row">
       <div class="column">
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
-      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+        <% @photographer.photographs[0,1].each do |photograph| %>
+          <%= cl_image_tag photograph.photo.key %>
+        <% end %>
+      </div>
+      <div class="column">
+        <% @photographer.photographs[2,3].each do |photograph| %>
+          <%= cl_image_tag photograph.photo.key %>
+        <% end %>
+      </div>
+      <div class="column">
+        <% @photographer.photographs[4,5].each do |photograph| %>
+          <%= cl_image_tag photograph.photo.key %>
+        <% end %>
+      </div>
     </div>
-
-    <div class="column">
-      <%= image_tag("https://i.pinimg.com/originals/dd/59/4e/dd594e241abf617abed2b7d586c19ef9.jpg") %>
-      <%= image_tag("https://renuarlocaj.com/wp-content/uploads/2019/12/Genta-Portrait-Photography-Beauty-Photography-Make-Up-Ujvara-Hajdari-Photographer-Renuar-Locaj-1.jpg") %>
-    </div>
-
   </div>
-</div>
 </div>
 
 
