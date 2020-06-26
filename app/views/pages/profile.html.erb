@@ -37,10 +37,10 @@
 
     <div class="col-12 col-lg-8">
       <% if current_user.bookings.empty? && Booking.where(photographer: current_user.photographers).empty? %>
-        <h5 style="margin-top: 25px;">No bookings yet!</h5>
+        <h5 style="margin-top: 35px;">No bookings yet!</h5>
       <% else %>
         <% if !Booking.where(photographer: current_user.photographers).empty? %>
-          <h5 style="margin-top: 25px;">Bookings for my service</h5>
+          <h5 style="margin-top: 35px;">Bookings for my service</h5>
           <% Booking.where(photographer: current_user.photographers).each do |booking| %>
             <div class="card-horizontal">
               <div class="card-horizontal-parcel">
@@ -69,7 +69,7 @@
           <% end %>
         <% end %>
         <% if !current_user.bookings.empty? %>
-          <h5 style="margin-top: 25px;">My Bookings</h5>
+          <h5 style="margin-top: 35px;">My Bookings</h5>
           <% current_user.bookings.each do |booking| %>
             <div class="card-horizontal">
               <div class="card-horizontal-parcel">
