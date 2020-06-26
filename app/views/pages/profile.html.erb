@@ -1,54 +1,102 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-lg-4">
       <div class="d-flex" style="align-items: center;">
         <div style="width: 150px; margin-right: 20px;">
           <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-xl" />
         </div>
         <div style="max-width: 250px;">
           <p class="profile_name"><%= current_user.name %></p>
-          <%= link_to 'Edit User', edit_user_registration_path, class: "btn btn-outline-dark btn-edit" %>
+          <%= link_to 'Edit User', edit_user_registration_path, class: "btn btn-outline-dark btn-font" %>
         </div>
       </div>
       <br>
       <% if !current_user.photographers.empty? %>
         <% if current_user.photographers.length == 1 %>
-          <h3 class= "your_ph_profile">Your Photographer Profile</h3>
+          <h3 class= "your_ph_profile">My Photographer Profile</h3>
         <% else %>
-          <h3 class= "your_ph_profile">Your Photographer Profiles</h3>
+          <h3 class= "your_ph_profile">My Photographer Profiles</h3>
         <% end %>
         <% current_user.photographers.each do |photographer| %>
           <div class="card_profile">
-            <%= render 'partials/card', photographer: photographer %>
+            <%= link_to photographer_path(photographer), class: "card-link" do %>
+              <%= render 'partials/card', photographer: photographer %>
+            <% end %>
           </div>
-          <%= link_to 'Edit', edit_photographer_path(photographer), class: "btn btn-outline-dark btn-edit_photographer" %>
+          <%= link_to 'Edit', edit_photographer_path(photographer), class: "btn btn-outline-dark btn-font" %>
           <%= link_to 'Delete',
                 photographer_path(photographer),
                 method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark btn-delete" %>
+                data: { confirm: "Are you sure?" }, class: "btn btn-outline-dark btn-font" %>
         <% end %>
-        <%= link_to 'Create', new_photographer_path, class: "btn btn-outline-dark btn-new" %>
+        <%= link_to 'Create', new_photographer_path, class: "btn btn-outline-dark btn-font" %>
       <% else %>
-        <%= link_to 'Create', new_photographer_path, class: "btn btn-outline-dark btn-new" %>
+        <%= link_to 'Create Photographer', new_photographer_path, class: "btn btn-dark btn-font" %>
       <% end %>
     </div>
 
-    <div class="col-12 col-md-6">
-      <% if current_user.photographers.empty? %>
-        <p>No bookings yet!</p>
+    <div class="col-12 col-lg-8">
+      <% if current_user.bookings.empty? && Booking.where(photographer: current_user.photographers).empty? %>
+        <h5 style="margin-top: 25px;">No bookings yet!</h5>
       <% else %>
-        <% current_user.bookings.each do |booking| %>
-          <div class="card-horizontal">
-            <div class="card-horizontal-parcel">
-              <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="">
+        <% if !Booking.where(photographer: current_user.photographers).empty? %>
+          <h5 style="margin-top: 25px;">Bookings for my service</h5>
+          <% Booking.where(photographer: current_user.photographers).each do |booking| %>
+            <div class="card-horizontal">
+              <div class="card-horizontal-parcel">
+                <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="">
+              </div>
+              <div class="card-horizontal-parcel card-horizontal-center">
+                <h5><%= booking.user.name %></h5>
+
+              </div>
+              <div class="card-horizontal-parcel">
+                <p><%= "#{booking.day.day}/#{booking.day.month}/#{booking.day.year}" %> <%= "#{booking.duration} #{booking.duration == 1 ? 'hour' : 'hours'}"%> </p>
+                <p>Total price <%= booking.total_price %> €</p>
+              </div>
+              <div class="card-horizontal-parcel">
+                <% if !booking.confirmed %>
+                  <button type="button" id="confirm" class="btn btn-outline-success btn-font">Confirm</button>
+                  <button type="button" class="btn btn-outline-danger btn-font">Reject</button>
+                <% elsif !booking.completed %>
+                  <button type="button" class="btn btn-success btn-font">Confirmed</button>
+                  <button type="button" id="complete" class="btn btn-outline-dark btn-font">Complete</button>
+                <% else %>
+                  <button type="button" class="btn btn-dark btn-font">Done</button>
+                <% end %>
+              </div>
             </div>
-            <div class="card-horizontal-parcel card-horizontal-center">
-              <h5><%= booking.photographer.name %></h5>
-              <p><%= booking.photographer.location %></p>
+          <% end %>
+        <% end %>
+        <% if !current_user.bookings.empty? %>
+          <h5 style="margin-top: 25px;">My Bookings</h5>
+          <% current_user.bookings.each do |booking| %>
+            <div class="card-horizontal">
+              <div class="card-horizontal-parcel">
+                <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="">
+              </div>
+              <div class="card-horizontal-parcel card-horizontal-center">
+                <h5><%= booking.photographer.name %></h5>
+                <p><%= booking.photographer.location %></p>
+              </div>
+              <div class="card-horizontal-parcel">
+                <%= link_to 'See profile', photographer_path(booking.photographer), class: "btn btn-outline-dark btn-font" %>
+              </div>
+              <div class="card-horizontal-parcel">
+                <p><%= "#{booking.day.day}/#{booking.day.month}/#{booking.day.year}" %> <%= "#{booking.duration} #{booking.duration == 1 ? 'hour' : 'hours'}"%> </p>
+                <p>Total price <%= booking.total_price %> €</p>
+              </div>
+              <div class="card-horizontal-parcel">
+                <% if !booking.confirmed %>
+                  <p style="color: darkgrey;">Pending</p>
+                <% elsif !booking.completed %>
+                  <p class="text-success">Confirmed!</p>
+                <% else %>
+                  <p>Done</p>
+                <% end %>
+              </div>
             </div>
-            <div class="card-horizontal-parcel"><p><%= booking.total_price %> €</p></div>
-            <div class="card-horizontal-parcel"><%= link_to 'See profile', photographer_path(booking.photographer), class: "btn btn-dark btn-font" %></div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
