@@ -44,20 +44,26 @@
   <div class="container">
     <div class="row">
       <div class="column">
-        <% if @photographer.photographs[0,1] %>
+        <% if @photographer.photographs[0] %>
           <%= cl_image_tag @photographer.photographs[0].photo.key %>
+        <% end %>
+        <% if @photographer.photographs[1] %>
           <%= cl_image_tag @photographer.photographs[1].photo.key %>
         <% end %>
       </div>
       <div class="column">
-        <% if @photographer.photographs[2,3] %>
+        <% if @photographer.photographs[2] %>
           <%= cl_image_tag @photographer.photographs[2].photo.key %>
+        <% end %>
+        <% if @photographer.photographs[3] %>
           <%= cl_image_tag @photographer.photographs[3].photo.key %>
         <% end %>
       </div>
       <div class="column">
-        <% if @photographer.photographs[4,5] %>
+        <% if @photographer.photographs[4] %>
           <%= cl_image_tag @photographer.photographs[4].photo.key %>
+        <% end %>
+        <% if @photographer.photographs[5] %>
           <%= cl_image_tag @photographer.photographs[5].photo.key %>
         <% end %>
       </div>
