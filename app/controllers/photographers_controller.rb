@@ -19,7 +19,11 @@ class PhotographersController < ApplicationController
   end
 
   def index
-    @photographers = policy_scope(Photographer)
+    if params[:query].present?
+      @photographers = policy_scope(Photographer.where("location ILIKE ?", "%#{params[:query]}%"))
+    else
+      @photographers = policy_scope(Photographer)
+    end
   end
 
   def show
