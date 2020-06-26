@@ -1,11 +1,19 @@
 <div class = "photo-container">
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
       <div class="col-lg-10">
         <%= cl_image_tag @photograph.photo.key, class: "display-photo" %>
       </div>
       <div class="col-lg-2">
-        This will be a tags sidebar
+        <h2> Tag your masterpiece </h2>
+          <div>
+          <% if current_user == @photographer.user %>
+             <%= render 'photograph_tags/new', photographer: @photographer, photograph: @photograph, photograph_tag: @photograph_tag %>
+            <% else %>
+
+              <%= @photographer.name %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

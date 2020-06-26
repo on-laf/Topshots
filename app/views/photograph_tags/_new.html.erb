@@ -1,0 +1,9 @@
+<%= simple_form_for [photographer, photograph, photograph_tag] do |f| %>
+
+  <%= f.association :tag, as: :collection_select, collection: Tag.all.pluck(:tag_name) %>
+
+  <div>
+    <%= f.submit "Add tag", class: "btn btn-dark btn-font" %>
+    <!-- Think where you want the Cancel to redirect to -->
+  </div>
+<% end %>

@@ -1,6 +1,5 @@
 class PhotographTagsController < ApplicationController
   def new
-    @photograph_tag = PhotographTag.new
   end
 
   def create
