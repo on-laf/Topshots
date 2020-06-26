@@ -5,9 +5,14 @@
   border-radius: 8px;
   font-size: 13px;
   font-weight: 40;
-    &:hover {
-    color: white;
-  }
+}
+
+.btn-white-font {
+  color: white;
+}
+
+.btn-white-hover:hover {
+  color: white;
 }
 // .btn-edit {
 
