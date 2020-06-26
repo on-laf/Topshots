@@ -1,7 +1,7 @@
 <div class="card">
   <% if photographer.photographs[0] %>
     <%= cl_image_tag photographer.photographs[0].photo.key %>
-    <% else %>
+  <% else %>
     <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
   <% end %>
   <div class="card-infos">
@@ -10,8 +10,11 @@
       <p><%= photographer.location %></p>
     </div>
     <h2 class="card-pricing"><%= photographer.price %> €</h2>
-    <!-- <img src="https://kitt.lewagon.com/placeholder/users/random" class="card-avatar avatar-bordered" /> -->
-    <%= cl_image_tag photographer.user.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "card-avatar avatar-bordered" %>
+    <% if photographer.user.photo.present? %>
+      <%= cl_image_tag photographer.user.photo.key, height: 40, width: 40, crop: :thumb, gravity: :face, class: "card-avatar avatar-bordered" %>
+    <% else %>
+      <div class="fake-avatar card-avatar avatar-bordered"><%= photographer.user.name[0].upcase %></div>
+    <% end %>
   </div>
 </div>
 

@@ -18,6 +18,6 @@ class PhotographPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    true
   end
 end
