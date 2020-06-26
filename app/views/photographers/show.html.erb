@@ -7,7 +7,7 @@
   <% end %>
   <div class="container" id="content_profile"> <!-- margin-top-negative -->
     <div class="row">
-      <div class="col-8">
+      <div class="col-12 col-lg-8">
         <div>
           <h1><%= @photographer.name %></h1>
           <p><i class="fa fa-map-pin mr-2" aria-hidden="true"></i><%= @photographer.location %></p>
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-12 col-lg-4">
         <div>
           <% if current_user == @photographer.user %>
              <%= render 'photographs/new', photographer: @photographer, photograph: @photograph  %>
