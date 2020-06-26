@@ -41,64 +41,38 @@
       </div>
     </div>
   </div>
-
-    <!-- Grid row -->
+<div>
   <div class="row">
+    <div class="column">
 
-    <!-- Grid column -->
-    <div class="col-md-12 d-flex justify-content-center mb-5">
+      <% @photographer.photographs.each do |photograph| %>
+            <%= cl_image_tag photograph.photo.key %>
+      <% end %>
 
-      <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="all">All</button>
-      <button type="button" class="btn btn-outline-dark btn-font mr-2" data-rel="1">Portraits</button>
-      <button type="button" class="btn btn-outline-dark btn-font" data-rel="2">Lifestyle</button>
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
 
     </div>
-    <!-- Grid column -->
+
+    <div class="column">
+      <%= image_tag("https://mymodernmet.com/wp/wp-content/uploads/2018/10/Mou-Aysha-portrait-photography-3.jpg") %>
+      <%= image_tag("https://i.pinimg.com/originals/03/33/21/033321112df5d5a0392082517cbe5143.jpg") %>
+    </div>
+
+      <div class="column">
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+      <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+    </div>
+
+    <div class="column">
+      <%= image_tag("https://i.pinimg.com/originals/dd/59/4e/dd594e241abf617abed2b7d586c19ef9.jpg") %>
+      <%= image_tag("https://renuarlocaj.com/wp-content/uploads/2019/12/Genta-Portrait-Photography-Beauty-Photography-Make-Up-Ujvara-Hajdari-Photographer-Renuar-Locaj-1.jpg") %>
+    </div>
 
   </div>
-  <!-- Grid row -->
-
-  <!-- Grid row -->
-  <div class="gallery" id="gallery">
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
-    </div>
-    <!-- Grid column -->
-
-  </div>
-  <!-- Grid row -->
+</div>
 </div>
 
 
