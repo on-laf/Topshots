@@ -1,6 +1,8 @@
 <div class="card">
   <% if photographer.photographs[0] %>
     <%= cl_image_tag photographer.photographs[0].photo.key %>
+    <% else %>
+    <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
   <% end %>
   <div class="card-infos">
     <div>
