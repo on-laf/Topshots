@@ -56,11 +56,11 @@
               </div>
               <div class="card-horizontal-parcel">
                 <% if !booking.confirmed %>
-                  <button type="button" id="confirm" class="btn btn-outline-success btn-font">Confirm</button>
+                  <%= link_to 'Confirm', flop_photographer_booking_path(booking.photographer, booking), class: "btn btn-outline-success btn-font btn-white-hover" %>
                   <button type="button" class="btn btn-outline-danger btn-font">Reject</button>
                 <% elsif !booking.completed %>
-                  <button type="button" class="btn btn-success btn-font">Confirmed</button>
-                  <button type="button" id="complete" class="btn btn-outline-dark btn-font">Complete</button>
+                  <button type="button" class="btn btn-success btn-font btn-white-font">Confirmed</button>
+                  <%= link_to 'Complete', flop_photographer_booking_path(booking.photographer, booking), class: "btn btn-outline-dark btn-font" %>
                 <% else %>
                   <button type="button" class="btn btn-dark btn-font">Done</button>
                 <% end %>

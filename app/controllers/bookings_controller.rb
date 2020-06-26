@@ -26,6 +26,18 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def flop
+    @booking = Booking.find(params[:id])
+    if !@booking.confirmed
+      @booking.confirmed = true
+    elsif !@booking.completed
+      @booking.completed = true
+    end
+    authorize @booking
+    @booking.save
+    redirect_to profile_path
+  end
+
   private
 
   def booking_params
