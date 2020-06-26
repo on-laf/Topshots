@@ -24,13 +24,14 @@ class PhotographersController < ApplicationController
     else
       @photographers = policy_scope(Photographer)
     end
+    @photographs = Photograph.where(photographer: @photographer)
   end
 
   def show
     authorize @photographer
     @booking = Booking.new
     @photograph = Photograph.new
-    @photographs = Photograph.where(photographer: @photograph.photographer)
+    @photographs = Photograph.where(photographer: @photographer)
   end
 
   def edit

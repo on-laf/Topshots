@@ -1,5 +1,5 @@
 <div class="card">
-  <%= image_tag("https://picsum.photos/id/#{rand(1000)}/300/200") %>
+  <%= cl_image_tag photographer.photographs[0].photo.key %>
   <div class="card-infos">
     <div>
       <h2><%= photographer.name %></h2>
