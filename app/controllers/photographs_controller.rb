@@ -1,6 +1,7 @@
 class PhotographsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
   def new
     @photograph = Photograph.new
     authorize @photograph
@@ -22,8 +23,13 @@ class PhotographsController < ApplicationController
   end
 
   def show
+    @photographer = Photographer.find(params[:photographer_id])
     @photograph = Photograph.find(params[:id])
+    @photograph_tags = PhotographTag.where(photograph: @photograph)
+    @photograph_tag = PhotographTag.new
     authorize @photograph
+    authorize @photographer
+    authorize @photograph_tags
   end
 
   def destroy
