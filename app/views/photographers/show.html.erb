@@ -46,26 +46,38 @@
     <div class="row">
       <div class="column">
         <% if @photographer.photographs[0] %>
-          <%= cl_image_tag @photographer.photographs[0].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[0]) do %>
+            <%= cl_image_tag @photographer.photographs[0].photo.key %>
+          <% end %>
         <% end %>
         <% if @photographer.photographs[1] %>
-          <%= cl_image_tag @photographer.photographs[1].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[1]) do %>
+            <%= cl_image_tag @photographer.photographs[1].photo.key %>
+          <% end %>
         <% end %>
       </div>
       <div class="column">
         <% if @photographer.photographs[2] %>
-          <%= cl_image_tag @photographer.photographs[2].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[2]) do %>
+            <%= cl_image_tag @photographer.photographs[2].photo.key %>
+          <% end %>
         <% end %>
         <% if @photographer.photographs[3] %>
-          <%= cl_image_tag @photographer.photographs[3].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[3]) do %>
+            <%= cl_image_tag @photographer.photographs[3].photo.key %>
+          <% end %>
         <% end %>
       </div>
       <div class="column">
         <% if @photographer.photographs[4] %>
-          <%= cl_image_tag @photographer.photographs[4].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[4]) do %>
+            <%= cl_image_tag @photographer.photographs[4].photo.key %>
+          <% end %>
         <% end %>
         <% if @photographer.photographs[5] %>
-          <%= cl_image_tag @photographer.photographs[5].photo.key %>
+          <% link_to photographer_photograph_path(@photographer, @photographer.photographs[5]) do %>
+            <%= cl_image_tag @photographer.photographs[5].photo.key %>
+          <% end %>
         <% end %>
       </div>
     </div>
