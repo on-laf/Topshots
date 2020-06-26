@@ -3,7 +3,7 @@
     <div class="col-12 col-lg-4">
       <div class="d-flex" style="align-items: center;">
         <div style="width: 150px; margin-right: 20px;">
-          <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-xl" />
+          <%= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :thumb, gravity: :face, class: "avatar-xl" %>
         </div>
         <div style="max-width: 250px;">
           <p class="profile_name"><%= current_user.name %></p>
