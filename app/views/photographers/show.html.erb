@@ -45,23 +45,20 @@
     <div class="row">
       <div class="column">
         <% if @photographer.photographs[0,1] %>
-          <% @photographer.photographs[0,1].each do |photograph| %>
-            <%= cl_image_tag photograph.photo.key %>
-          <% end %>
+          <%= cl_image_tag @photographer.photographs[0].photo.key %>
+          <%= cl_image_tag @photographer.photographs[1].photo.key %>
         <% end %>
       </div>
       <div class="column">
         <% if @photographer.photographs[2,3] %>
-          <% @photographer.photographs[2,3].each do |photograph| %>
-            <%= cl_image_tag photograph.photo.key %>
-          <% end %>
+          <%= cl_image_tag @photographer.photographs[2].photo.key %>
+          <%= cl_image_tag @photographer.photographs[3].photo.key %>
         <% end %>
       </div>
       <div class="column">
         <% if @photographer.photographs[4,5] %>
-          <% @photographer.photographs[4,5].each do |photograph| %>
-            <%= cl_image_tag photograph.photo.key %>
-          <% end %>
+          <%= cl_image_tag @photographer.photographs[4].photo.key %>
+          <%= cl_image_tag @photographer.photographs[5].photo.key %>
         <% end %>
       </div>
     </div>
