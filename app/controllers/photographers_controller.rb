@@ -30,7 +30,7 @@ class PhotographersController < ApplicationController
     authorize @photographer
     @booking = Booking.new
     @photograph = Photograph.new
-    @photographs = Photograph.where(photographer: @photograph.photographer)
+    @photographs = Photograph.where(photographer: @photographer)
   end
 
   def edit
