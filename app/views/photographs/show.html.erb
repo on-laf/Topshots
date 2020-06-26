@@ -5,13 +5,15 @@
         <%= cl_image_tag @photograph.photo.key, class: "display-photo" %>
       </div>
       <div class="col-lg-2">
-        <h2> Tag your masterpiece </h2>
-          <div>
+        <div>
           <% if current_user == @photographer.user %>
-             <%= render 'photograph_tags/new', photographer: @photographer, photograph: @photograph, photograph_tag: @photograph_tag %>
-            <% else %>
-
+            <h5> Tag your masterpiece </h5>
+            <%= render 'photograph_tags/new', photographer: @photographer, photograph: @photograph, photograph_tag: @photograph_tag %>
+          <% else %>
+            <div style="padding-top: 10px; font-family: Montserrat;">
+              <p style="color: darkgrey; margin: 0;">Photo by</p>
               <%= @photographer.name %>
+            </div>
           <% end %>
         </div>
       </div>
