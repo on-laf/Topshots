@@ -1,5 +1,7 @@
 <div class="card">
-  <%= cl_image_tag photographer.photographs[0].photo.key %>
+  <% if photographer.photographs[0] %>
+    <%= cl_image_tag photographer.photographs[0].photo.key %>
+  <% end %>
   <div class="card-infos">
     <div>
       <h2><%= photographer.name %></h2>
