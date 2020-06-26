@@ -24,3 +24,39 @@
   border-radius: 50%;
 }
 
+.fake-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #343A40;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.fake-avatar-large {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-color: #343A40;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.fake-avatar-xl {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: #343A40;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}

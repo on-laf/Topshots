@@ -3,7 +3,11 @@
     <div class="col-12 col-lg-4">
       <div class="d-flex" style="align-items: center;">
         <div style="width: 150px; margin-right: 20px;">
-          <%= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :thumb, gravity: :face, class: "avatar-xl" %>
+          <% if current_user.photo.present? %>
+            <%= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :thumb, gravity: :face, class: "avatar-xl" %>
+          <% else %>
+            <div class="fake-avatar-xl"><%= current_user.name[0].upcase %></div>
+          <% end %>
         </div>
         <div style="max-width: 250px;">
           <p class="profile_name"><%= current_user.name %></p>
@@ -44,11 +48,14 @@
           <% Booking.where(photographer: current_user.photographers).each do |booking| %>
             <div class="card-horizontal">
               <div class="card-horizontal-parcel">
-                <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="">
+                <% if booking.user.photo.present? %>
+                  <%= cl_image_tag booking.user.photo.key, height: 56, width: 56, crop: :thumb, gravity: :face, class: "avatar-large" %>
+                <% else %>
+                  <div class="fake-avatar-large"><%= booking.user.name[0].upcase %></div>
+                <% end %>
               </div>
               <div class="card-horizontal-parcel card-horizontal-center">
                 <h5><%= booking.user.name %></h5>
-
               </div>
               <div class="card-horizontal-parcel">
                 <p><%= "#{booking.day.day}/#{booking.day.month}/#{booking.day.year}" %> <%= "#{booking.duration} #{booking.duration == 1 ? 'hour' : 'hours'}"%> </p>
@@ -73,7 +80,11 @@
           <% current_user.bookings.each do |booking| %>
             <div class="card-horizontal">
               <div class="card-horizontal-parcel">
-                <img src="https://kitt.lewagon.com/placeholder/users/random" class="avatar-large" alt="">
+                <% if booking.photographer.user.photo.present? %>
+                  <%= cl_image_tag booking.photographer.user.photo.key, height: 56, width: 56, crop: :thumb, gravity: :face, class: "avatar-large" %>
+                <% else %>
+                  <div class="fake-avatar-large"><%= booking.photographer.user.name[0].upcase %></div>
+                <% end %>
               </div>
               <div class="card-horizontal-parcel card-horizontal-center">
                 <h5><%= booking.photographer.name %></h5>
@@ -102,20 +113,3 @@
     </div>
   </div>
 </div>
-<!--
-    t.datetime "day" - string
-    t.integer "total_price" integer
-    t.boolean "confirmed", default: false
-    t.boolean "completed", default: false
-    t.bigint "user_id", null: false
-    t.bigint "photographer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "duration"
-    t.index ["photographer_id"], name: "index_bookings_on_photographer_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id" -->
-
-
-
-
-

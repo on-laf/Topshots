@@ -7,8 +7,15 @@
       <div class="col-lg-2">
         <div>
           <% if current_user == @photographer.user %>
-            <h5> Tag your masterpiece </h5>
-            <%= render 'photograph_tags/new', photographer: @photographer, photograph: @photograph, photograph_tag: @photograph_tag %>
+            <div style="padding-top: 10px;">
+              <h5> Tag your masterpiece </h5>
+              <%= render 'photograph_tags/new', photographer: @photographer, photograph: @photograph, photograph_tag: @photograph_tag %>
+              <%= link_to 'Delete Photo',
+                photographer_photograph_path(@photographer, @photograph),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: "btn btn-outline-danger btn-font mt-3"%>
+            </div>
           <% else %>
             <div style="padding-top: 10px; font-family: Montserrat;">
               <p style="color: darkgrey; margin: 0;">Photo by</p>
